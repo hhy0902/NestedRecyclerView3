@@ -1,3 +1,7 @@
 package com.example.nestedrecyclerview12.model
 
-data class Room(val name : String)
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+//@Parcelize
+data class Room(val name : String)// : Parcelable
