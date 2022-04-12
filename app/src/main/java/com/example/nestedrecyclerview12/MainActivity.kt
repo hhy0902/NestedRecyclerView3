@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
         roomList = mutableListOf<Room>()
         roomList.add(Room("room 1"))
 
+        val database = androidx.room.Room.databaseBuilder(applicationContext,
+            DeviceDatabase::class.java,
+            "device-database"
+        ).allowMainThreadQueries().build()
+
         val startActivityLauncher : ActivityResultLauncher<Intent> =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 when(it.resultCode) {
@@ -60,6 +65,14 @@ class MainActivity : AppCompatActivity() {
             Log.d("qwer", roomList.size.toString())
             binding.dataText.text = spinnerData
             binding.dataText2.text = editData
+        }
+
+        binding.btnLoad.setOnClickListener {
+            val deviceProfiles = database.deviceProfileDao().getAll()
+            deviceProfiles.forEach {
+                Log.d("asdf","${it.roomNumber}, ${it.deviceName}, ${it.spinnerValue}, ${it.editTextValue}")
+            }
+
         }
 
 //        binding.btnLoad.setOnClickListener {

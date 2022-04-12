@@ -2,13 +2,15 @@
 <resources>
     <string-array name="planets_array">
         <item></item>
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>PC</item>
+        <item>모니터</item>
+        <item>좌타 모니터</item>
+        <item>스피커</item>
+        <item>프로젝터 1</item>
+        <item>프로젝터 2</item>
+        <item>공기청정기</item>
+        <item>조명</item>
+        <item>IR 블래스터</item>
+        <item>에어컨</item>
     </string-array>
 </resources>
