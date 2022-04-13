@@ -1,5 +1,6 @@
 package com.example.nestedrecyclerview12
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -68,23 +69,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnLoad.setOnClickListener {
-            val deviceProfiles = database.deviceProfileDao().getAll()
-            deviceProfiles.forEach {
-                Log.d("asdf","${it.roomNumber}, ${it.deviceName}, ${it.spinnerValue}, ${it.editTextValue}")
-            }
+//            val deviceProfiles = database.deviceProfileDao().getAll()
+//            deviceProfiles.forEach {
+//                Log.d("asdf","${it.roomNumber}, ${it.deviceName}, ${it.spinnerValue}, ${it.editTextValue}")
+//            }
+
+            val sharedPreferences = getSharedPreferences("room 3", Context.MODE_PRIVATE)
+            val spinnerValue = sharedPreferences.getInt("spinnerSelect1", 0)
+            val editTextValue = sharedPreferences.getString("editdata1", "empty")
+
+            Log.d("asdf main share", spinnerValue.toString())
+            Log.d("asdf main share", editTextValue.toString())
 
         }
-
-//        binding.btnLoad.setOnClickListener {
-//            val roomSizeValue = intent.getIntExtra("roomSizeValue",0)
-//            Toast.makeText(this,"$roomSizeValue",Toast.LENGTH_SHORT).show()
-//
-//            for (i in 1..roomSizeValue-1) {
-//                Log.d("asdf","test $i")
-//                roomList.add(Room("room ${i+1}"))
-//            }
-//            roomAdapter.notifyDataSetChanged()
-//        }
     }
 }
 
